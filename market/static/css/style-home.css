@@ -1,0 +1,184 @@
+
+.container {
+	width: 600px;
+	display: flex;
+	outline: 2px solid orange;
+  }
+  
+.fst-column {
+	position:fixed;
+	left:0;
+	top:0;
+	width:50%;
+	height:100%;
+	background:blue;
+	color:#fff;
+	overflow:hidden;
+}
+
+.scnd-column {
+	position:fixed;
+	right:0;
+	top:0;
+	width:50%;
+	height:100%;
+	background:#fff;
+	overflow:auto;
+}
+
+.block-3 {
+	align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    width: 50%;
+}
+
+
+
+.block-3 {
+	align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 75%;
+    justify-content: center;
+    width: 50%;
+}
+
+.block-3 p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 80px;
+    font-weight: 90;
+    height: 35px;
+    text-align: left;
+    width: 215px;
+}
+
+.block-3 span {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.56;
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 50%;
+    width: 450px;
+}
+
+.button-lets-go {
+    margin-top: 75px;
+    margin-left:0%
+}
+
+.block-1 {
+	margin: 5px;
+	outline: 2px solid yellow;
+}
+  
+.block-2 {
+	margin: 5px;
+	outline: 2px solid hotpink;
+}   
+
+
+button {
+    background: transparent;
+    color: #000000;
+    border: 3px solid #000000;
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+    font: 18px "Margarine", sans-serif;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s ease-in-out;
+    letter-spacing: 2px;
+  }
+  
+  .name {
+    width: 100%;
+    text-align: center;
+    padding: 0 0 3rem;
+    padding-top: 4rem;
+    font: 500 14px "Rubik", sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  }
+  
+  .button-parrot .parrot {
+    position: absolute;
+    width: 60px;
+    text-align: center;
+    animation: blink 0.8s infinite;
+    color: transparent;
+  }
+  
+  .button-parrot .parrot:before {
+    content: "Click Me!";
+  }
+  
+  .button-parrot .parrot:nth-child(1) {
+    top: -30px;
+    left: -40px;
+    font: 12px/1 "Margarine", sans-serif;
+    transform: rotate(-20deg);
+    animation-duration: 0.5s;
+  }
+  
+  .button-parrot .parrot:nth-child(2) {
+    font: 12px/1 "Margarine", sans-serif;
+    right: -40px;
+    top: -20px;
+    transform: rotate(15deg);
+    animation-duration: 0.3s;
+  }
+  
+  .button-parrot .parrot:nth-child(3) {
+    font: 16px/1 "Margarine", sans-serif;
+    top: -60px;
+    left: 15px;
+    transform: rotate(10deg);
+    animation-duration: 1s;
+  }
+  
+  .button-parrot .parrot:nth-child(4) {
+    font: 18px/1 "Margarine", sans-serif;
+    top: -70px;
+    left: 95px;
+    transform: rotate(2deg);
+    animation-duration: 0.7s;
+  }
+  
+  .button-parrot .parrot:nth-child(5) {
+    font: 14px/1 "Margarine", sans-serif;
+    top: 80px;
+    left: 105px;
+    transform: rotate(-20deg);
+    animation-duration: 0.8s;
+  }
+  
+  .button-parrot .parrot:nth-child(6) {
+    font: 12px/1 "Margarine", sans-serif;
+    top: 80px;
+    left: 5px;
+    transform: rotate(10deg);
+    animation-duration: 1.2s;
+  }
+  
+  .button-parrot button:hover .parrot:before {
+    content: "Do it!";
+    width: 70px;
+  }
+  
+  @keyframes blink {
+    25%, 75% {
+      color: transparent;
+    }
+  
+    40%, 60% {
+      color: #000000;
+    }
+  } 

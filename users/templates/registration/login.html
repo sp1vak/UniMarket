@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="authentication-form">
+<form class="form" method="post">
+    {% csrf_token %}
+    <p class="form-title">Sign in to your account</p>
+     <div class="input-container">
+         {% render_field form.username placeholder="Enter username" %}
+   </div>
+   <div class="input-container">
+       {% render_field form.password placeholder="Enter password" %}
+     </div>
+    {% if form.errors %}
+        {{ form.errors }}
+    {% endif %}
+      <button class="submit" type="submit">
+     Sign in
+   </button>
+
+   <p class="signup-link">
+     No account?
+     <a href="/users/register/">Sign up</a>
+   </p>
+</form>
+</div>
+{% endblock content %}

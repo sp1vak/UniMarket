@@ -1,0 +1,671 @@
+body {
+  background-color: #e8e8e8;
+}
+
+header {
+  width: 100%;
+  height: 200px;
+  margin-top: 0px;
+  margin-left: 0px;
+  position: relative;
+}
+
+.logout-button {
+  position: relative;
+  width: 100px;
+  margin-top: -4%;
+  margin-left: 2%;
+}
+
+.more-products {
+  margin-top: -25%;
+  margin-left:75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 8px; 
+  font-family: Arial, Helvetica, sans-serif;
+  width: 125px;
+  color:#f83e3e;
+  border: none;
+  background: #f470703c;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.more-products:hover {
+  background: #fd2f2f3c;
+}
+
+.authentication-form {
+  position: relative;
+  margin-top: -10%;
+}
+
+.button-container {
+  position: absolute;
+  margin-left: 1500px;
+  margin-top: 50px;
+  display: flex;
+  background-color: #ff2d2d;
+  width: 275px;
+  height: 40px;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px,
+  #fe7676 5px 10px 15px;
+}
+
+.button {
+  outline: 0 !important;
+  border: 0 !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.bell {
+  border: 2.17px solid white;
+  border-radius: 10px 10px 0 0;
+  width: 8px;
+  height: 11px;
+  background: transparent;
+  display: block;
+  position: relative;
+  top: -3px;
+}
+.bell::before,
+.bell::after {
+  content: "";
+  background: white;
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2.17px;
+}
+.bell::before {
+  top: 100%;
+  width: 20px;
+}
+.bell::after {
+  top: calc(100% + 4px);
+  width: 7px;
+}
+/*container main styling*/
+.notification {
+  background: transparent;
+  border: none;
+  padding: 15px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 300ms;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*notifications number with before*/
+.notification::before {
+  content: "1";
+  color: white;
+  font-size: 10px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+/*container background hover effect*/
+.notification:hover {
+  background: rgba(170, 170, 170, 0.062);
+}
+/*container animations*/
+.notification:hover > .bell-container {
+  animation: bell-animation 650ms ease-out 0s 1 normal both;
+}
+/*bell ring and scale animation*/
+@keyframes bell-animation {
+  20% {
+    transform: rotate(15deg);
+  }
+
+  40% {
+    transform: rotate(-15deg);
+    scale: 1.1;
+  }
+  60% {
+    transform: rotate(10deg);
+    scale: 1.1;
+  }
+  80% {
+    transform: rotate(-10deg);
+  }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.container {
+  width: 100%;
+  height: 200%;
+  background: lightblue;
+  position: absolute;
+  overflow: hidden;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, #3498db 10%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #3498db 20%);
+  background-size: 30px 30px; /* Adjust the size of the pattern */
+  animation: moveBackground 8s linear infinite; /* Adjust the animation duration and timing function */
+}
+
+@keyframes moveBackground {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(20%, 20%);
+  }
+}
+
+/* From Uiverse.io by andrew-demchenk0 */ 
+/* before adding the img to the div with the 
+"card-img" class, remove css styles 
+.card-img .img::before and .card-img .img::after,
+then set the desired styles for .card-img. */
+.card {
+  --font-color: #161616;
+  --font-color-sub: #171717;
+  --bg-color: #fff;
+  --main-color: #ff2d2d;
+  --main-focus: #2d8cf0;
+  width: 230px;
+  height: 300px;
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  border-radius: 5px;
+  padding: 20px;
+  gap: 10px;
+  margin-left: 1px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card-block {
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  margin-left: 3%;
+}
+
+.container-basket {
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  display: inline-block;
+}
+
+.card:last-child {
+  justify-content: flex-end;
+}
+
+.card-img {
+    /* clear and add new css */
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+}
+
+.img-bd {
+  width: 170px;
+  height: 170px;
+}
+
+.card-img .img {
+ /* delete */
+  transform: scale(1);
+  position: relative;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  border-top-left-radius: 80px 50px;
+  border-top-right-radius: 80px 50px;
+  border: 2px solid black;
+  background-color: #228b22;
+  background-image: linear-gradient(to top,transparent 10px,rgba(0,0,0,0.3) 10px,rgba(0,0,0,0.3) 13px,transparent 13px);
+}
+
+.card-img .img::before {
+ /* delete */
+  content: '';
+  position: absolute;
+  width: 65px;
+  height: 110px;
+  margin-left: -32.5px;
+  left: 50%;
+  bottom: -4px;
+  background-repeat: no-repeat;
+  background-image: radial-gradient(ellipse at center,rgba(0,0,0,0.7) 30%,transparent 30%),linear-gradient(to top,transparent 17px,rgba(0,0,0,0.3) 17px,rgba(0,0,0,0.3) 20px,transparent 20px),linear-gradient(to right,black 2px,transparent 2px),linear-gradient(to left,black 2px,transparent 2px),linear-gradient(to top,black 2px,#228b22 2px);
+  background-size: 60% 10%,100% 100%,100% 65%,100% 65%,100% 50%;
+  background-position: center 3px,center bottom,center bottom,center bottom,center bottom;
+  border-radius: 0 0 4px 4px;
+  z-index: 2;
+}
+
+.card-img .img::after {
+ /* delete */
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  margin-left: -14px;
+  left: 50%;
+  top: -13px;
+  background-repeat: no-repeat;
+  
+  background-position: center center;
+  border-top-left-radius: 120px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 70px;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--font-color);
+}
+
+.card-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--font-color-sub);
+}
+
+.card-divider {
+  width: 100%;
+  border: 1px solid var(--main-color);
+  border-radius: 50px;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-price {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--font-color);
+}
+
+.card-price span {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--font-color-sub);
+}
+
+.card-btn {
+  height: 35px;
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  padding: 0 15px;
+  transition: all 0.3s;
+}
+
+.card-btn svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--main-color);
+  transition: all 0.3s;
+}
+
+.card-img:hover {
+  transform: translateY(-3px);
+}
+
+.card-btn:hover {
+  border: 2px solid var(--main-focus);
+}
+
+.card-btn:hover svg {
+  fill: var(--main-focus);
+}
+
+.card-btn:active {
+  transform: translateY(3px);
+}
+
+.webchat {
+  position:absolute;
+  height: 500px;
+  width: 850px;
+  background-color: #fff;
+  border-color: #fff;
+  border-radius: 4%;
+  margin-top: -4%;
+  margin-left: 26%;
+  box-shadow: 4px 4px 2px rgb(201, 201, 201);
+}
+
+.profile {
+  position:absolute;
+  height: 500px;
+  width: 850px;
+  background-color: #fff;
+  border-color: #fff;
+  border-radius: 4%;
+  margin-top: -4%;
+  margin-left: 26%;
+  box-shadow: 4px 4px 2px rgb(201, 201, 201);
+}
+
+.avatar {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  margin-top: -10%;
+  margin-left: 42%;
+  overflow: hidden;
+}
+
+.photo-avatar {
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.information {
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-top: 15px
+}
+
+.name {
+  text-align: center;
+  font-size:190%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.unimarket {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:11px;
+}
+
+.descr {
+  margin-top:4%;
+  text-align: center;
+  font-size: 105%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* From Uiverse.io by andrew-demchenk0 */ 
+a {
+  text-decoration: none;
+}
+
+
+.editbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 8px;
+  height: 36px;
+  width: 120px;
+  border: none;
+  background: #f470703c;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.edit-profile {
+  margin-left: 83%;
+  margin-top: 2%;
+}
+
+.back-profile {
+  margin-left: auto;
+}
+
+.lableb {
+  line-height: 20px;
+  font-size: 17px;
+  color: #f83e3e;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+
+.editbtn:hover {
+  background: #fd2f2f3c;
+}
+
+.plusproduct {
+  color: red;
+}
+
+.editbtn:hover .svg-iconn {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+/* making a loading logo */
+.loader {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  animation: spinner-y0fdc1 2s infinite ease;
+  transform-style: preserve-3d;
+ }
+ 
+ .spinner > div {
+  background-color: rgba(0,77,255,0.2);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  border: 2px solid #004dff;
+ }
+ 
+ .spinner div:nth-of-type(1) {
+  transform: translateZ(-22px) rotateY(180deg);
+ }
+ 
+ .spinner div:nth-of-type(2) {
+  transform: rotateY(-270deg) translateX(50%);
+  transform-origin: top right;
+ }
+ 
+ .spinner div:nth-of-type(3) {
+  transform: rotateY(270deg) translateX(-50%);
+  transform-origin: center left;
+ }
+ 
+ .spinner div:nth-of-type(4) {
+  transform: rotateX(90deg) translateY(-50%);
+  transform-origin: top center;
+ }
+ 
+ .spinner div:nth-of-type(5) {
+  transform: rotateX(-90deg) translateY(50%);
+  transform-origin: bottom center;
+ }
+ 
+ .spinner div:nth-of-type(6) {
+  transform: translateZ(22px);
+ }
+ 
+ @keyframes spinner-y0fdc1 {
+  0% {
+   transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+  }
+ 
+  50% {
+   transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+  }
+ 
+  100% {
+   transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+  }
+ }
+
+
+ /* From Uiverse.io by Yaya12085 */ 
+.form {
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  padding: 1rem;
+  max-width: 350px;
+  border-radius: 0.5rem;
+  margin-left: 38%;
+  margin-top: 12%;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.form-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: #000;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-container input, .form button {
+  outline: none;
+  border: 1px solid #e5e7eb;
+  margin: 8px 0;
+}
+
+.input-container input {
+  background-color: #fff;
+  padding: 1rem;
+  padding-right: 2rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: 300px;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.input-container span {
+  display: grid;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  place-content: center;
+}
+
+.input-container span svg {
+  color: #9CA3AF;
+  width: 1rem;
+  height: 1rem;
+}
+
+.submit {
+  display: block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  background-color: #ff2d2d;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+}
+
+.signup-link {
+  color: #6B7280;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: center;
+}
+
+.signup-link a {
+  text-decoration: underline;
+}
+
+.add_products {
+  width: auto;
+  margin-top: 1%;
+  margin-left: 83%;
+}

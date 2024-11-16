@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="authentication-form">
+<form class="form" method="post">
+    {% csrf_token %}
+    <p class="form-title">Create your account</p>
+    <div class="input-container">
+        {% render_field form.username placeholder="Enter username" %}
+    </div>
+    <div class="input-container">
+        {% render_field form.email placeholder="Enter email" %}
+    </div>
+    <div class="input-container">
+       {% render_field form.password1 placeholder="Enter password" %}
+   </div>
+   <div class="input-container">
+       {% render_field form.password2 placeholder="Confirm password" %}
+     </div>
+    {% if form.errors %}
+        {{ form.errors }}
+    {% endif %}
+      <button class="submit" type="submit">
+     Sign in
+   </button>
+
+   <p class="signup-link">
+     Already have an account?
+     <a href="/users/login/">Sign in</a>
+   </p>
+</form>
+</div>
+{% endblock content %}

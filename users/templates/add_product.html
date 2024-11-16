@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block container %}<div class="container"></div>  {% endblock container %}
+
+{% block content %}
+    <div class="authentication-form">
+      <form class="form" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <p class="form-title">Create your own product</p>
+           <div class="input-container">
+               {% render_field form.name placeholder="Product`s name" %}
+         </div>
+         <div class="input-container">
+             {% render_field form.price placeholder="Price" %}
+          </div>
+          <div class="input-container">
+            {% render_field form.image placeholder="Image" %}
+         </div>
+         <div class="input-container">
+          {% render_field form.description placeholder="Enter description" %}
+          </div>
+          <div class="input-container">
+          {% render_field form.category %}
+          </div>
+          {% if form.errors %}
+              {{ form.errors }}
+          {% endif %}
+          <button class="editbtn"><span class="lableb" type="submit">Confirm</span></button>
+      </form>
+    </div>
+
+{% endblock content %}  

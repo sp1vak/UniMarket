@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block container %}<div class="container"></div>  {% endblock container %}
+
+{% block content %}
+<div class="profile">
+    <a href="/users/edit-profile/"><div class="edit-profile"><button class="editbtn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20" fill="none" class="svg-iconn"><g stroke-width="1.5" stroke-linecap="round" stroke="#f83e3e"><circle r="2.5" cy="10" cx="10"></circle><path fill-rule="evenodd" d="m8.39079 2.80235c.53842-1.51424 2.67991-1.51424 3.21831-.00001.3392.95358 1.4284 1.40477 2.3425.97027 1.4514-.68995 2.9657.82427 2.2758 2.27575-.4345.91407.0166 2.00334.9702 2.34248 1.5143.53842 1.5143 2.67996 0 3.21836-.9536.3391-1.4047 1.4284-.9702 2.3425.6899 1.4514-.8244 2.9656-2.2758 2.2757-.9141-.4345-2.0033.0167-2.3425.9703-.5384 1.5142-2.67989 1.5142-3.21831 0-.33914-.9536-1.4284-1.4048-2.34247-.9703-1.45148.6899-2.96571-.8243-2.27575-2.2757.43449-.9141-.01669-2.0034-.97028-2.3425-1.51422-.5384-1.51422-2.67994.00001-3.21836.95358-.33914 1.40476-1.42841.97027-2.34248-.68996-1.45148.82427-2.9657 2.27575-2.27575.91407.4345 2.00333-.01669 2.34247-.97026z" clip-rule="evenodd"></path></g></svg>
+      <span class="lableb">Settings</span>
+    </button></div></a>
+    <div class="logout-button">   
+      <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button class="editbtn"><span class="lableb" type="submit">< Logout</span></button>
+      </form>
+    </div>
+    <a href="/users/add_products/"><div class="add_products"><button class="editbtn">
+      <span class="svg-iconn"><div class="plusproduct">+</div></span><span class="lableb"> Product</span>
+    </button></div></a>
+    <div class="avatar">    
+      {% if user.avatar %}
+        <a href="/"><img src="{{ user.avatar.url }}" class="photo-avatar" alt="#" height="100" width="100" /></a>
+      {% else %}
+        <a href="/"><img src="{% static 'img/avatar.jpg' %}" class="photo-avatar" alt="#" height="100" width="100" /></a>
+      {% endif %}
+      </div>
+    <div class="information">
+        <div class="name">
+            {{ user.username }}
+        </div>
+        <div class="unimarket">
+            UniMarket user
+        </div>
+        <div class="descr">
+            {{ user.description }}
+        </div>
+    </div>
+    {% if basket %}
+    <div class="card-block">
+    {% for prod in basket %}
+    <div class="container-basket">
+    <div class="card">
+      <div class="card-img"><img src="{{ prod.product.image.url }}" class="img-bd"></div>
+      <div class="card-title">{{ prod.product.name }}</div>
+      <div class="card-subtitle">{{ prod.product.description }}</div>
+      
+      <hr class="card-divider">
+      <div class="card-footer">
+          <div class="card-price"><span>$</span> {{ prod.product.price }}</div>
+          <a href="/users/basket-delete/{{ prod.id }}"><button class="card-btn">
+            <?xml version="1.0" encoding="utf-8"?>
+            <!-- License: PD. Made by icons8: https://github.com/icons8/windows-10-icons -->
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+            	 viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+            <path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M23,27H11c-1.1,0-2-0.9-2-2V8h16v17
+            	C25,26.1,24.1,27,23,27z"/>
+            <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="27" y1="8" x2="7" y2="8"/>
+            <path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M14,8V6c0-0.6,0.4-1,1-1h4c0.6,0,1,0.4,1,1v2"/>
+            <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="17" y1="23" x2="17" y2="12"/>
+            <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="21" y1="23" x2="21" y2="12"/>
+            <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="13" y1="23" x2="13" y2="12"/>
+            </svg>
+          </button></a>
+      </div>
+      <div class="card-subtitle"><span>Quantity:</span> {{ prod.quantity }}</div>
+    </div>
+    </div>
+    {% endfor %}
+    <a href="/users/basket/"><button class="more-products">More products here...</button> </a>
+    </div>
+  {% else %}
+  <div class="descr">
+    Basket is clear
+  </div>
+  {% endif %}
+</div>
+{% endblock content %}

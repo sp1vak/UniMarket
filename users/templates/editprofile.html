@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block container %}<div class="container"></div>  {% endblock container %}
+
+{% block content %}
+    <div class="authentication-form"> 
+      <form class="form" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <p class="form-title">Edit your profile</p>
+           <div class="input-container">
+               {% render_field form.avatar placeholder="Choose your avatar" %}
+         </div>
+         <div class="input-container">
+             {% render_field form.username placeholder="Enter new username" %}
+          </div>
+          <div class="input-container">
+            {% render_field form.email placeholder="Enter new email address" %}
+         </div>
+         <div class="input-container">
+          {% render_field form.description placeholder="Enter description" %}
+          </div>
+          {% if form.errors %}
+              {{ form.errors }}
+          {% endif %}
+          <button class="editbtn"><span class="lableb" type="submit">Confirm</span></button>
+          <a href="/users/profile/"><div class="back-profile"><button class="editbtn">
+            <span class="lableb">< Exit</span>
+          </button></div></a>
+      </form>
+    </div>
+{% endblock content %}
